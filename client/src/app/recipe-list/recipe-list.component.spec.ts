@@ -4,13 +4,13 @@ import { RecipeListComponent } from './recipe-list.component';
 
 describe('RecipeListComponent', () => {
   let component: RecipeListComponent;
-  let fixture: ComponentFixture<RecipeListComponent>;
+  let fixture: ComponentFixture < RecipeListComponent > ;
 
-  beforeEach(async(() => {
+  beforeEach(async (() => {
     TestBed.configureTestingModule({
-      declarations: [ RecipeListComponent ]
-    })
-    .compileComponents();
+        declarations: [RecipeListComponent]
+      })
+      .compileComponents();
   }));
 
   beforeEach(() => {

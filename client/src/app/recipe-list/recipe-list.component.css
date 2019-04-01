@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>Visualizar Receitas</h3>
+  </div>
+  <div *ngFor="let recipe of recipes | async" style="width: 300px;">
+    <recipe-details [recipe]='recipe'></recipe-details>
+  </div>
+</div>
+
+<div>
+  <button type="button" class="button btn-danger" (click)='deleteRecipes()'>Apagar Todas</button>
+</div>
