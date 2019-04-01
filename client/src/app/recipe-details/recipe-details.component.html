@@ -1,3 +1,30 @@
-<p>
-  recipe-details works!
-</p>
+<div *ngIf="recipe">
+  <div class="panel-body">
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Porções</th>
+          <th>Calorias</th>
+          <th>Ingredientes</th>
+          <th>Modo de preparo</th>
+          <th>Apagar receita</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{recipe.name}}</td>
+          <td>{{recipe.servings}}</td>
+          <td>{{recipe.calories}}</td>
+          <td>
+            <ul>
+              <li *ngFor="let ingredient of recipe.ingredients">{{ingredient.name}}</li>
+            </ul>
+          </td>
+          <td class="overflow">{{recipe.howTo}}</td>
+          <td><button type="button" class="button btn-danger" (click)="deleteRecipe(recipe.id)">Apagar</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
