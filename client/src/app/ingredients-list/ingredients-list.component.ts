@@ -6,7 +6,7 @@ import { Ingredients } from '../ingredients';
 @Component({
   selector: 'ingredients-list',
   templateUrl: './ingredients-list.component.html',
-  styleUrls: ['./ingredients-list.component.scss']
+  styleUrls: ['./ingredients-list.component.css']
 })
 export class IngredientsListComponent implements OnInit {
   
