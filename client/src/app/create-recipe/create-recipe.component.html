@@ -1,3 +1,60 @@
-<p>
-  create-recipe works!
-</p>
+<h3>Criar Receita</h3>
+<div [hidden]="submitted" style="width: 350px;">
+    <form (ngSubmit)="onSubmit()" name="form1" id="form1" class="form-horizontal" [formGroup]="form">
+
+        <div class="form-group">
+          <div class="col-sm-12">
+            <label for="name" class="control-label">Nome</label>
+            <input type="text" id="name" name="name" class="form-control" required  [(ngModel)]="recipe.name" formControlName="name">
+          </div>
+        </div>
+      
+        <div class="form-group">
+          <div class="col-sm-12">
+            <label for="servings" class="control-label">Porções</label>
+            <input type="number" id="servings" name="servings" class="form-control" required [(ngModel)]="recipe.servings" formControlName="servings">
+          </div>
+        </div>
+      
+        <div class="form-group">
+          <div class="col-sm-12">
+            <label for="calories" class="control-label">Calorias</label>
+            <input type="number" id="calories" name="calories" class="form-control" required [(ngModel)]="recipe.calories" formControlName="calories">
+          </div>
+        </div>
+      
+        <div class="form-group">
+            <div class="col-sm-12">
+              <label for="ingredients">Ingredientes</label>
+              <ng-multiselect-dropdown 
+                formControlName="ingredients"
+                [placeholder]="'Selecione os Ingredientes'"
+                [data]="dropdownList"
+                [(ngModel)]="recipe.ingredients"
+                [settings]="dropdownSettings"
+                (onSelect)="onItemSelect($event)"
+                (onSelectAll)="onSelectAll($event)">
+              </ng-multiselect-dropdown>
+              <input type="text" id="ingredients" name="ingredients" style="display:none"  formControlName="ingredients" />
+            </div>
+          </div>
+      
+          <div class="form-group">
+              <div class="col-sm-12">
+                <label for="howTo" class="control-label">Modo de Preparo</label>
+                <input type="text" id="howTo" name="howTo" class="form-control" required  [(ngModel)]="recipe.howTo" formControlName="howTo">
+              </div>
+            </div>
+        
+      
+        <button type="submit" class="btn btn-primary" [disabled]="!form.valid">
+          Criar
+        </button>
+      
+      </form>
+</div>
+<div [hidden]="!submitted">
+  <h4>Você criou a receita com sucesso!</h4>
+  <button class="btn btn-primary" (click)="newRecipe()">Criar outra receita</button>
+</div>
+
